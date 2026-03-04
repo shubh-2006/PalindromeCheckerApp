@@ -3,22 +3,20 @@ import java.util.*;
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
 
-        String input = "civic";
+        String input = "refer";
 
-        Queue<Character> queue = new LinkedList<>();
-        Stack<Character> stack = new Stack<>();
+        Deque<Character> deque = new ArrayDeque<>();
 
         for(char c : input.toCharArray())
         {
-            queue.add(c);
-            stack.push(c);
+            deque.add(c);
         }
 
         boolean isPalindrome = true;
 
-        while(!queue.isEmpty())
+        while(deque.size() > 1)
         {
-            if(queue.remove() != stack.pop())
+            if(deque.removeFirst() != deque.removeLast())
             {
                 isPalindrome = false;
                 break;
